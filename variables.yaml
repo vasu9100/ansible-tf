@@ -1,0 +1,10 @@
+MONGO_HOST: mongo.gonepudirobot.online # submit your host
+REDIS_HOST: redis.gonepudirobot.online
+MYSQL_HOST: mysql.gonepudirobot.online
+RABBIT_HOST: rabbit.gonepudirobot.online
+CATALOGUE_HOST: catalogue.gonepudirobot.online
+USER_HOST: user.gonepudirobot.online
+CART_HOST: cart.gonepudirobot.online
+SHIPPING_HOST: shipping.gonepudirobot.online
+PAYMENT_HOST: payment.gonepudirobot.online
+DISPATCH_HOST: dispatch.gonepudirobot.online

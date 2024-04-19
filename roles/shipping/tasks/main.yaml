@@ -1,0 +1,20 @@
+- name: app setup {{component}}
+  import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: Maven setup
+  import_role:
+    name: common
+    tasks_from: java-setup    
+
+- name: START {{component}}
+  import_role: 
+    name: common
+    tasks_from: systemd-setup
+
+- name: mysql-setup
+  import_role:
+    name: common
+    tasks_from: mysql-setup    
+

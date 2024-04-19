@@ -1,0 +1,11 @@
+- name: disbaling and old node js and enabling new nodejs
+  shell: "{{ item }}"
+  loop:
+  - dnf module disable nodejs -y
+  - dnf module enable nodejs:18 -y
+  - dnf install nodejs -y
+
+- name: Npm Installation
+  shell: npm install
+  args:
+    chdir: /app

@@ -1,0 +1,12 @@
+- name: INSTALLING MAVEN
+  dnf:
+    name: maven
+    state: present
+
+- name: INSTALL MAVEN PACKAGES
+  shell: "{{ item }}"
+  loop:
+    - mvn clean package
+    - mv target/shipping-1.0.jar shipping.jar
+  args:
+    chdir: /app

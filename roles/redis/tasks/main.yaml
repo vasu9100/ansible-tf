@@ -1,0 +1,31 @@
+
+- name: INSTALLIMG {{component}} REPOSITORY
+  shell: dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+
+- name: Enable Redis 6.2 from package streams.
+  shell: dnf module enable redis:remi-6.2 -y
+
+- name: INSTALL {{component}} 
+  dnf:
+    name: "{{component}}"
+    state: present
+
+- name: Replace old hostname with new hostname (requires Ansible >= 2.4)
+  replace:
+    path: "/etc/redis.conf"
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0' 
+
+- name: Start and enable redis
+  service:
+    name: "{{component}}"
+    state: started
+    enabled: yes
+
+- name: print network output
+  shell: netstat -tuln
+  register: redis_output
+
+- name: print redis output
+  debug:
+    msg: "{{ redis_output.stdout_lines }}"    

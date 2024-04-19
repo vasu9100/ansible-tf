@@ -1,0 +1,15 @@
+- name: app setup
+  import_role:
+    name: common
+    tasks_from: app-setup
+
+- name: python setup
+  import_role:
+    name: common
+    tasks_from: python-setup
+
+- name: servicefile-setup
+  import_role:
+    name: common
+    tasks_from: systemd-setup     
+

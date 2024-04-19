@@ -1,0 +1,34 @@
+- name: Set up the MongoDB repository file
+  copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mongo.repo
+
+- name: Install MongoDB
+  dnf:
+    name: mongodb-org
+    state: present
+
+- name: Start MongoDB Service
+  service:
+    name: mongod
+    state: started
+    enabled: yes
+
+- name: Update listen address
+  replace:
+    path: /etc/mongod.conf
+    regexp: '127.0.0.1'
+    replace: '0.0.0.0'
+
+- name: Restart MongoDB
+  service:
+    name: mongod
+    state: restarted 
+
+- name: Execute netstat command
+  command: netstat -tuln
+  register: netstat_output
+
+- name: Display netstat output
+  debug:
+    msg: "{{ netstat_output.stdout_lines }}"

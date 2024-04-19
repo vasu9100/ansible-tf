@@ -1,0 +1,23 @@
+- name: DISABLING MYSQL
+  shell: dnf module disable mysql -y
+
+- name:  COPYING MYSQL REPO
+  copy:
+    src: "{{component}}.repo"
+    dest: "/etc/yum.repos.d/{{component}}.repo"
+
+- name: install {{component}} server
+  dnf:
+    name: mysql-community-server
+    state: present
+
+- name: START and Enabling MYSQL
+  service:
+    name: mysqld
+    state: started
+    enabled: true
+
+- name: CHANGING PASSWORD OF {{component}}
+  shell: "{{item}}"
+  loop:
+  - mysql_secure_installation --set-root-pass {{ MYSQL_PASS }}
