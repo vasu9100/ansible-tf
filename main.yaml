@@ -1,8 +1,9 @@
 ---
 - name: Installing {{component}}
-  hosts: "{{component}}"
+  hosts: localhost
   become: yes
+  connection: local
   vars_files:
-    - variables.yaml
+    - variables-{{env}}.yaml
   roles:
   - "{{component}}"
