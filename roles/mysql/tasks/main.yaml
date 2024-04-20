@@ -20,4 +20,4 @@
 - name: CHANGING PASSWORD OF {{component}}
   shell: "{{item}}"
   loop:
-  - mysql_secure_installation --set-root-pass {{ lookup('aws_ssm', '/roboshop/{{env}}/mysql_root_pass', region='us-east-1', decrypt=True ) }}
+  - mysql_secure_installation --set-root-pass {{ lookup('aws_ssm', '/Roboshop/{{env}}/mysql_root_pass', region='us-east-1', decrypt=True ) }}
