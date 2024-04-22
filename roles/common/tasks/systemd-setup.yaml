@@ -5,11 +5,15 @@
  
 
 
+# - name: RELOAD SYSTEMD DAEMON of {{component}}
+#   systemd:
+#     name: "{{component}}"
+#     enabled: yes
+ 
+
 - name: RELOAD SYSTEMD DAEMON of {{component}}
   systemd:
-    daemon_reexec: yes    
-
-- name: RESTART {{component}} SERVICE
-  systemd:
-    name: "{{ component }}"
-    state: restarted 
+    name: "{{component}}"
+    daemon_reloaded: yes
+    state: restarted
+    enabled: yes    
