@@ -9,11 +9,14 @@
 #   systemd:
 #     name: "{{component}}"
 #     enabled: yes
- 
+
+
+- name: deamon realod and start
+  ansible.builtin.systemd_service:
+    daemon_reload: true
 
 - name: RELOAD SYSTEMD DAEMON of {{component}}
-  systemd:
+  service:
     name: "{{component}}"
-    daemon_reloaded: yes
     state: restarted
     enabled: yes    
