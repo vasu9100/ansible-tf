@@ -40,6 +40,11 @@
 - name: Copy Main Configuration File
   template:
     src: "roboshop.conf.j2"
-    dest: /etc/nginx/default.d/roboshop.conf
-  notify: Restart NGINX Server  
+    dest: /etc/nginx/default.d/roboshop.conf  
+
+- name: Restart NGINX Server
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
+    enabled: yes    
 
