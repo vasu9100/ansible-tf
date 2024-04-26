@@ -3,8 +3,8 @@ REDIS_HOST: redis-dev.gonepudirobot.online
 MYSQL_HOST: mysql-dev.gonepudirobot.online
 RABBIT_HOST: rabbit-dev.gonepudirobot.online
 CATALOGUE_HOST: catalogue.app-dev.gonepudirobot.online
-USER_HOST: user-dev.gonepudirobot.online
-CART_HOST: cart-dev.gonepudirobot.online
-SHIPPING_HOST: shipping-dev.gonepudirobot.online
-PAYMENT_HOST: payment-dev.gonepudirobot.online
-DISPATCH_HOST: dispatch-dev.gonepudirobot.online
+USER_HOST: user.app-dev.gonepudirobot.online
+CART_HOST: cart.app-dev.gonepudirobot.online
+SHIPPING_HOST: shipping.app-dev.gonepudirobot.online
+PAYMENT_HOST: payment.app-dev.gonepudirobot.online
+DISPATCH_HOST: dispatch.app-dev.gonepudirobot.online
