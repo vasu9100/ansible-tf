@@ -8,3 +8,5 @@ CART_HOST: cart.app-dev.gonepudirobot.online
 SHIPPING_HOST: shipping.app-dev.gonepudirobot.online
 PAYMENT_HOST: payment.app-dev.gonepudirobot.online
 DISPATCH_HOST: dispatch.app-dev.gonepudirobot.online
+NEXUS_URL: http://44.192.61.27:8081/repository
+group_id: "com/roboshop"

@@ -12,13 +12,24 @@
     path: /app
     state: directory  
 
-- name: Downloading App Code
+# - name: Downloading App Code
+#   get_url:
+#     url: "https://roboshop-builds.s3.amazonaws.com/{{ component }}.zip"
+#     dest: /tmp
+
+# - name: unzipping app copde
+#   unarchive:
+#     src: "/tmp/{{ component }}.zip"
+#     dest: /app
+#     remote_src: yes
+
+- name: Download app code from nexus
   get_url:
-    url: "https://roboshop-builds.s3.amazonaws.com/{{ component }}.zip"
+    url: "{{ NEXUS_URL }}/{{ component }}/{{ group_id }}/{{component}}/{{app_version}}/{{component}}-{{app_version}}.zip"
     dest: /tmp
 
 - name: unzipping app copde
   unarchive:
-    src: "/tmp/{{ component }}.zip"
+    src: "/tmp/{{component}}-{{app_version}}.zip"
     dest: /app
     remote_src: yes
